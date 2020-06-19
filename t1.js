@@ -10,10 +10,24 @@ let personalMovieDB = {
     private: false
 };
 
-let film1 = prompt("Какой фильм вы недавно посмотрели?"),
-    rate1 = prompt("На сколько оцените его?"),
-    film2 = prompt("Какой фильм вы недавно посмотрели?"),
-    rate2 = prompt("На сколько оцените его?");
+function countTest(obj) {
+    if (obj.count < 10)
+        console.log("Смотри больше, сука");
+    if (obj.count >= 10 && obj.count < 30)
+        console.log("Не, ну нормально");
+    if (obj.count >= 30)
+        console.log("Найди себе уже бабу");
+}
 
-personalMovieDB.movies[film1] = rate1;
-personalMovieDB.movies[film2] = rate2;
+for (let i = 0; i < 2; i++) {
+    let film = prompt("Какой фильм вы недавно посмотрели?");
+    let rate = prompt("На сколько оцените его?");
+    if (film != null && rate != null && film.length !== 0 && film.length <= 50) {
+        personalMovieDB.movies[film] = rate;
+    } else {
+        console.log('Вы дибил');
+        i--;
+    }
+}
+
+countTest(personalMovieDB);
