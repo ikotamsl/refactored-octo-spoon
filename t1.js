@@ -32,9 +32,11 @@ function showMyFilms(hidden) {
         console.log(personalMovieDB);
 }
 
-// function writeYourGenres () {
-//     for (let i = 1; i )
-// }
+function writeYourGenres () {
+    for (let i = 1; i <= 3; i++) {
+        personalMovieDB.genres[i - 1] = prompt('Ваш любимый жанр под номером ' + i);
+    }
+}
 
 function filmsWatched() {
     for (let i = 0; i < 2; i++) {
@@ -53,3 +55,4 @@ start();
 countTest(personalMovieDB);
 filmsWatched();
 showMyFilms(personalMovieDB.private);
+writeYourGenres();
