@@ -1,6 +1,6 @@
 "use strict"
 
-let numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?');
+let numberOfFilms;
 
 let personalMovieDB = {
     count: numberOfFilms,
@@ -9,6 +9,14 @@ let personalMovieDB = {
     genres: [],
     private: false
 };
+
+function start() {
+    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
+
+    while (numberOfFilms === '' || numberOfFilms === null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?');
+    }
+}
 
 function countTest(obj) {
     if (obj.count < 10)
@@ -19,15 +27,16 @@ function countTest(obj) {
         console.log("Найди себе уже бабу");
 }
 
-for (let i = 0; i < 2; i++) {
-    let film = prompt("Какой фильм вы недавно посмотрели?");
-    let rate = prompt("На сколько оцените его?");
-    if (film != null && rate != null && film.length !== 0 && film.length <= 50) {
-        personalMovieDB.movies[film] = rate;
-    } else {
-        console.log('Вы дибил');
-        i--;
-    }
-}
+// for (let i = 0; i < 2; i++) {
+//     let film = prompt("Какой фильм вы недавно посмотрели?");
+//     let rate = prompt("На сколько оцените его?");
+//     if (film != null && rate != null && film.length !== 0 && film.length <= 50) {
+//         personalMovieDB.movies[film] = rate;
+//     } else {
+//         console.log('Вы дибил');
+//         i--;
+//     }
+// }
 
+start();
 countTest(personalMovieDB);
